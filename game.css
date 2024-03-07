@@ -1,0 +1,217 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+html body{
+    background-color: black;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body .holder{
+    background-color: rgb(52, 51, 51);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px 2px rgba(165, 164, 164, 0.628);
+    padding: 20px;
+}
+
+.cardholder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: fit-content ;
+    width: fit-content;
+    margin: 0px;
+    gap: 10px;
+    
+}
+
+.cardholder .row{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0px;
+    gap: 10px;
+}
+
+.row .card{
+    height: 150px;
+    width: 150px;
+    padding: 0%;
+    margin: 0px;
+    position: relative;
+    transition: transform 0.6s ;
+    transform-style: preserve-3d;
+    border: none;
+    perspective: 500px;
+
+}
+
+
+.card-face, .card-back{
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    position: absolute;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    
+}
+
+.card-face{
+    background-image: url("./images/hans-isaacson-teoMP1O5RKI-unsplash.jpg");
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid white;
+}
+
+.card-back{
+    transform: rotateY( 180deg );
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.is-flipped{
+    transform: rotateY( 180deg );
+} 
+
+
+.winner{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: rgb(151, 151, 151);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    z-index: -999;
+    gap: 20px;
+    border-radius: 30px;
+
+}
+
+.winner h1,.winner button{
+    width: fit-content;
+    height: fit-content;
+}
+
+.winner h1{
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 4em;
+    display: flex;
+    flex-direction: row;
+}
+
+.winner h1 p{
+    height: fit-content;
+    width: fit-content;
+}
+
+.winner button{
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    background-color: lightblue;
+    color: rgb(4, 4, 97);
+    font-weight: 400;
+    border: none;
+    box-shadow: 5px 5px 10px;
+    animation: jump 2s ease-in-out 0s infinite;
+    transform: translateY(10px);
+}
+
+/* adding the media and keyframes for small devices */
+@keyframes jump{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes characters{
+    0%{
+        transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(5px);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    75%{
+        transform: translateY(5px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes comefor{
+    from{
+        opacity: 0;
+        z-index: -999;
+    }
+    to{
+        opacity: 1;
+        z-index: 999;
+
+    }
+}
+
+@media screen and (max-width: 700px){
+
+    .row .card {
+        height: 100px;
+        width: 100px;
+    }
+
+    
+    
+}
+
+@media screen and (max-width: 100px){
+
+    .row .card {
+        height: 150px;
+        width: 150px;
+    }
+    
+}
+
+@media screen and (min-width: 1000px){
+
+    .row .card {
+        height: 200px;
+        width: 200px;
+    }
+    
+    body .holder{
+        padding: 30px 60px;
+    }
+}
